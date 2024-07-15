@@ -7,3 +7,18 @@ SideNav:
 
 Table:
     https://v17.material.angular.io/components/table/overview
+
+    tela-lista-clientes >
+	top-filter-main-container - Remover no futuro
+
+
+
+
+
+
+Mexendo Com a API:
+
+API Pegando o Toke da api:
+    URL: https://api4.ajin.io/v2/login
+    AcessKey: Email
+    password: Senha.

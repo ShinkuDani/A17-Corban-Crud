@@ -1,12 +1,14 @@
 .main-container{
   display: flex;
-  width: 100%;
+  width: 218vh;
+  height: 95%;
 }
 
 .example-container {
     width: 200px;
-    height: 300px;
+    height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
   }
   
   .example-sidenav-content {
@@ -16,10 +18,12 @@
     justify-content: center;
   }
   
-  .example-sidenav button {
+  .example-sidenav button, a {
     width: 100%;
     border-radius: 10px;
   }
+
+
 
   .botao-isolado {
     border: 1px solid black;
@@ -28,4 +32,14 @@
 
   .list-content-clients {
     width: 200px;
+  }
+
+  .main-container table tr:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .main-container-searchTab {
+    height: 100px;
+    display: block;
+
   }

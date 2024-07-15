@@ -4,7 +4,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import { RouterModule } from '@angular/router'
+import { HeaderComponent } from "../header/header.component";
+import {MatCardModule} from '@angular/material/card';
+import { CreateClientComponent } from "../create-client/create-client.component";
 
 //Table parameters and variables
 export interface PeriodicElement {
@@ -34,7 +37,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-tela-lista-clientes',
   standalone: true,
-  imports: [MatCheckboxModule, MatTableModule,MatIconModule,MatButtonModule, MatSidenavModule],
+  imports: [RouterModule, MatCardModule, MatCheckboxModule, MatTableModule, MatIconModule, MatButtonModule, MatSidenavModule, HeaderComponent, CreateClientComponent],
   templateUrl: './tela-lista-clientes.component.html',
   styleUrl: './tela-lista-clientes.component.css'
 })
