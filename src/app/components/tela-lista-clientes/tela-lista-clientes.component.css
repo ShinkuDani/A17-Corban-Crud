@@ -1,5 +1,6 @@
 .main-container{
   display: flex;
+  flex-direction: row;
   width: 218vh;
   height: 95%;
 }

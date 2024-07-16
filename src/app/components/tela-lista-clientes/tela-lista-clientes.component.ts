@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router'
 import { HeaderComponent } from "../header/header.component";
 import {MatCardModule} from '@angular/material/card';
 import { CreateClientComponent } from "../create-client/create-client.component";
+import { CustomerServicesService } from '../../services/customer-services.service';
+import { customerInterface } from '../../Interfaces/customerInterface';
 
 //Table parameters and variables
 export interface PeriodicElement {
@@ -16,6 +18,15 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
   completed: boolean;
+}
+
+export interface Joke {
+  categories: [],
+  created_at: '',
+  id: '',
+  updated_at: '',
+  url: '',
+  value: ''
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -43,6 +54,117 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class TelaListaClientesComponent {
 
+  customerServices = inject(CustomerServicesService)
+
+  customer: customerInterface = {
+    accountCode: 0,
+    customerId: '',
+    parentTypeCode: 0,
+    parentId: '',
+    parentCode: 0,
+    parentName: '',
+    typeCode: 0,
+    typeName: '',
+    name: '',
+    nickname: '',
+    displayValue: '',
+    birthDate: '',
+    personTypeCode: 0,
+    personTypeName: '',
+    countryIdentity: '',
+    sexTypeCode: 0,
+    sexTypeName: '',
+    maritalStatusCode: 0,
+    maritalStatusName: '',
+    weddingDate: '',
+    spouseCountryIdentity: '',
+    spouseName: '',
+    motherName: '',
+    fatherName: '',
+    educationLevelCode: 0,
+    educationLevelName: '',
+    homeConditionCode: 0,
+    homeConditionName: '',
+    homeOccupationDate: '',
+    naturalness: '',
+    naturalnessState: '',
+    nationality: '',
+    countryOrigin: '',
+    profession: '',
+    role: '',
+    admissionDate: '',
+    grossIncome: 0,
+    netIncome: 0,
+    otherIncome: 0,
+    equityValue: 0,
+    paymentDay: 0,
+    monthlyBilling: 0,
+    annualBilling: 0,
+    externalCode: '',
+    addresses: [],
+    phones: [],
+    emails: [],
+    sites: [],
+    documents: [],
+    bankAccounts: [],
+    benefits: [],
+    fields: [],
+    statusCode: 0,
+    statusName: '',
+    statusDate: '',
+    statusColor: '',
+    statusNote: '',
+    alertCode: 0,
+    alertName: '',
+    alertDate: '',
+    alertColor: '',
+    alertNote: '',
+    storeId: '',
+    brokerId: '',
+    campaignId: '',
+    originTypeCode: 0,
+    originCode: 0,
+    inputTypeCode: 0,
+    tags: [],
+    properties: [],
+    score: '',
+    leadId: '',
+    importId: '',
+    note: '',
+    draft: false,
+    event: {
+      code: 0,
+      name: ''
+    }
+  }
+
+
+  getCus(id: number){
+    console.log(`Botão de Teste de Serviços Id: ${id}`)
+    this.customerServices.getCustomer(1).subscribe((data) => {
+      this.customer = data as customerInterface;
+      console.log(this.customer)
+    })
+  }
+
+  getJo(){
+     
+
+    let joke: Joke = {
+      categories: [],
+      created_at: '',
+      id: '',
+      updated_at: '',
+      url: '',
+      value: ''
+    } 
+
+    this.customerServices.getJoke().subscribe(data => {
+      joke = data as Joke
+      console.log(`Joke: ${joke.value}`)
+    }) 
+
+  }
 
   displayedColumns: string[] = ['CheckBox','position', 'name', 'weight', 'symbol', 'completed'];
   dataSource = ELEMENT_DATA

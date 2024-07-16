@@ -183,29 +183,30 @@ export class CustomerServicesService {
     'autorizathion': `bearer ${this.tokens.nome}`
   })
 
+  //Teste com API de Graça Joke API
+  getJoke(){
+    return this.http.get('https://api.chucknorris.io/jokes/random')
+  }
+
   //Pegando todos Customers
   getCustomers(){
-    this.http.get('api4.ajin.io/v2/customers', {
+    return this.http.get('https://api4.ajin.io/v2/customers', {
       headers: this.headers
     })
-      .subscribe( data => {
-        this.customers.push(data as customerInterface)
-      });
+      
   }
 
   //Pegando um Customer
   getCustomer(id: number){
-    this.http.get(`api4.ajin.io/v2/customers/${id}`, {
+    return this.http.get(`https://api4.ajin.io/v2/customers/${id}`, {
       headers: this.headers
     })
-      .subscribe( data => {
-        this.customer = data as customerInterface;
-      });
+
   }
 
   //Salvando Novo Customer
   postCustomer(id: number){
-    this.http.post(`api4.ajin.io/v2/customers`, {
+    this.http.post(`https://api4.ajin.io/v2/customers`, {
       headers: this.headers
     })
       .subscribe( data => {
@@ -217,7 +218,7 @@ export class CustomerServicesService {
 
   //Salvando Novo Customer
   putCustomer(id: number){
-    this.http.get(`api4.ajin.io/v2/customers/${id}`, {
+    this.http.get(`https://api4.ajin.io/v2/customers/${id}`, {
       headers: this.headers
     })
       .subscribe( data => {
@@ -227,7 +228,7 @@ export class CustomerServicesService {
 
   //Desletando customer
   deleteCustomer(id: number){
-    this.http.delete(`api4.ajin.io/v2/customers/${id}`, {
+    this.http.delete(`https://api4.ajin.io/v2/customers/${id}`, {
       headers: this.headers
     })
       .subscribe( data => {

@@ -39,6 +39,12 @@
 
 <div class="main-container">
     
+  <div>
+    <h1> Botão de Teste de Serviço </h1>
+    <button (click)="getCus(1)"> Utilizando Services Customer </button>
+    <button (click)="getJo()"> Utilizando Services Joke </button>
+
+  </div>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!--- Note that these columns can be defined in any order.
@@ -130,6 +136,8 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 </div>
+
+
 
 
 
