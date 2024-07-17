@@ -9,7 +9,7 @@ import { HeaderComponent } from "../header/header.component";
 import {MatCardModule} from '@angular/material/card';
 import { CreateClientComponent } from "../create-client/create-client.component";
 import { CustomerServicesService } from '../../services/customer-services.service';
-import { customerInterface } from '../../Interfaces/customerInterface';
+import { customerInterface } from '../../interfaces/customerInterface';
 
 //Table parameters and variables
 export interface PeriodicElement {
@@ -48,7 +48,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
 @Component({
   selector: 'app-tela-lista-clientes',
   standalone: true,
-  imports: [RouterModule, MatCardModule, MatCheckboxModule, MatTableModule, MatIconModule, MatButtonModule, MatSidenavModule, HeaderComponent, CreateClientComponent],
+  imports: [
+    RouterModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    HeaderComponent,
+    CreateClientComponent],
   templateUrl: './tela-lista-clientes.component.html',
   styleUrl: './tela-lista-clientes.component.css'
 })
@@ -138,7 +147,89 @@ export class TelaListaClientesComponent {
     }
   }
 
+  customers: customerInterface[] = [{
+    accountCode: 0,
+    customerId: '',
+    parentTypeCode: 0,
+    parentId: '',
+    parentCode: 0,
+    parentName: '',
+    typeCode: 0,
+    typeName: '',
+    name: '',
+    nickname: '',
+    displayValue: '',
+    birthDate: '',
+    personTypeCode: 0,
+    personTypeName: '',
+    countryIdentity: '',
+    sexTypeCode: 0,
+    sexTypeName: '',
+    maritalStatusCode: 0,
+    maritalStatusName: '',
+    weddingDate: '',
+    spouseCountryIdentity: '',
+    spouseName: '',
+    motherName: '',
+    fatherName: '',
+    educationLevelCode: 0,
+    educationLevelName: '',
+    homeConditionCode: 0,
+    homeConditionName: '',
+    homeOccupationDate: '',
+    naturalness: '',
+    naturalnessState: '',
+    nationality: '',
+    countryOrigin: '',
+    profession: '',
+    role: '',
+    admissionDate: '',
+    grossIncome: 0,
+    netIncome: 0,
+    otherIncome: 0,
+    equityValue: 0,
+    paymentDay: 0,
+    monthlyBilling: 0,
+    annualBilling: 0,
+    externalCode: '',
+    addresses: [],
+    phones: [],
+    emails: [],
+    sites: [],
+    documents: [],
+    bankAccounts: [],
+    benefits: [],
+    fields: [],
+    statusCode: 0,
+    statusName: '',
+    statusDate: '',
+    statusColor: '',
+    statusNote: '',
+    alertCode: 0,
+    alertName: '',
+    alertDate: '',
+    alertColor: '',
+    alertNote: '',
+    storeId: '',
+    brokerId: '',
+    campaignId: '',
+    originTypeCode: 0,
+    originCode: 0,
+    inputTypeCode: 0,
+    tags: [],
+    properties: [],
+    score: '',
+    leadId: '',
+    importId: '',
+    note: '',
+    draft: false,
+    event: {
+      code: 0,
+      name: ''
+    }
+  }]
 
+  //Pegando Customer One
   getCus(id: number){
     console.log(`Botão de Teste de Serviços Id: ${id}`)
     this.customerServices.getCustomer(1).subscribe((data) => {
@@ -147,9 +238,17 @@ export class TelaListaClientesComponent {
     })
   }
 
-  getJo(){
-     
+  //Pegando Customers  
+  getCuss(){
+    console.log(`Pegando Todos os Clientes com Esse serviço`)
+    this.customerServices.getCustomers().subscribe((data) => {
+      this.customers = data as customerInterface[];
+      console.log(this.customer)
+    })
+  }
 
+  //Pegando Piada
+  getJo(){
     let joke: Joke = {
       categories: [],
       created_at: '',
@@ -164,6 +263,16 @@ export class TelaListaClientesComponent {
       console.log(`Joke: ${joke.value}`)
     }) 
 
+  }
+
+  //Pegando Categorias de piadas
+  getJokeCategories(){
+    let chuckcategories = [];
+    this.customerServices.getChuckNorrisJokesCategories().subscribe(data => {
+      chuckcategories = data as Array<string>;
+      console.log(chuckcategories)
+      
+    })
   }
 
   displayedColumns: string[] = ['CheckBox','position', 'name', 'weight', 'symbol', 'completed'];

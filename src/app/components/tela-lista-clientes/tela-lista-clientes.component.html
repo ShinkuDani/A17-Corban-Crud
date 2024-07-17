@@ -38,15 +38,22 @@
 </div>
 
 <div class="main-container">
-    
-  <div>
-    <h1> Botão de Teste de Serviço </h1>
-    <button (click)="getCus(1)"> Utilizando Services Customer </button>
-    <button (click)="getJo()"> Utilizando Services Joke </button>
 
-  </div>
+  <ul class="main-container-content">
+    <li>
+      <div class="main-container-content-midBar">
+        <h1> Botões de Teste de Serviço </h1>
+        <button mat-raised-button  (click)="getCus(1)"> Utilizando Services Customer </button>
+        <button mat-raised-button  (click)="getCuss()"> Utilizando Services Customers </button>
+        <button mat-raised-button  (click)="getJo()"> Utilizando Services Joke </button>
+        <button mat-raised-button  (click)="getJokeCategories()"> Utilizadno Joke Categorys </button>
+      </div>
+    </li>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <li>
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
       
@@ -81,7 +88,7 @@
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Name </th>
           <td mat-cell *matCellDef="let element"> 
-            <span> conta </span>
+            <span> Conta </span>
             <div>
               {{element.name}}
             </div>
@@ -135,6 +142,15 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+
+    </li>
+
+
+  </ul>
+    
+  
+
+    
 </div>
 
 

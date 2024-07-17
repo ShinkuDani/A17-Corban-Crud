@@ -39,8 +39,17 @@
     background-color: rgba(0, 0, 0, 0.2);
   }
 
-  .main-container-searchTab {
-    height: 100px;
-    display: block;
+  .main-container-content-midBar {
+    width: 100%;
+    margin: 3px;
+    border: 1px solid transparent;
+  }
 
+  .main-container-content-midBar button {
+    margin-right: 10px;
+
+  }
+
+  ul li {
+    list-style: none;
   }

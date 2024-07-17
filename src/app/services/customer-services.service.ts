@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { customerInterface } from '../Interfaces/customerInterface';
+import { customerInterface } from '../interfaces/customerInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,11 @@ import { customerInterface } from '../Interfaces/customerInterface';
 export class CustomerServicesService {
 
   constructor(private http: HttpClient) { }
+
+  tokenGet = {
+    "accessKey": "daniel-silvasales@hotmail.com",
+    "password": "DanielTesteCorban360"
+  }
 
    customer: customerInterface = {
      accountCode: 0,
@@ -175,17 +180,38 @@ export class CustomerServicesService {
     }
    ];
 
-  tokens = {
-    'nome': 'Token'
-  }
+  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2QxMzA2ZTAtZTUxZS00ODY2LWEzZmQtZjM4MjE3ZGQ1MmIyIiwic2Vzc2lvbl9pZCI6IjczM2ZmMGYzLTIzODktNDFiZC1iNzc5LWM2NDhmYTU3NTMxYSIsInNpZ25hbF9pZCI6ImVlY2Y0NDZmLWM1ZGEtNDAwMS1hYjE4LTIyMWZlODYzYjhmZiIsImhvc3QiOiJodHRwczovL2FwaTQuYWppbi5pby9pbmRleC5odG1sIiwiaXAiOiIxOTEuMTgzLjM4LjQyIiwibmJmIjoxNzIxMTgzNDI0LCJleHAiOjE3MjEyNjk4MjQsImlhdCI6MTcyMTE4MzQyNH0.IzH5UOVKxCZRILnrUKSTm1ca0y5CSuQmh2jpsBrGkqU';
 
   headers = new HttpHeaders({
-    'autorizathion': `bearer ${this.tokens.nome}`
+    'Accept-Language': 'pt-BR,pt;q=0.9',
+    'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2QxMzA2ZTAtZTUxZS00ODY2LWEzZmQtZjM4MjE3ZGQ1MmIyIiwic2Vzc2lvbl9pZCI6IjczM2ZmMGYzLTIzODktNDFiZC1iNzc5LWM2NDhmYTU3NTMxYSIsInNpZ25hbF9pZCI6ImVlY2Y0NDZmLWM1ZGEtNDAwMS1hYjE4LTIyMWZlODYzYjhmZiIsImhvc3QiOiJodHRwczovL2FwaTQuYWppbi5pby9pbmRleC5odG1sIiwiaXAiOiIxOTEuMTgzLjM4LjQyIiwibmJmIjoxNzIxMTgzNDI0LCJleHAiOjE3MjEyNjk4MjQsImlhdCI6MTcyMTE4MzQyNH0.IzH5UOVKxCZRILnrUKSTm1ca0y5CSuQmh2jpsBrGkqU`,
+    'Connection': 'keep-alive',
+    'Referer': 'https://api4.ajin.io/index.html',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin',
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36',
+    'accept': '*/*',
+    'sec-ch-ua': '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': "Android" 
+
   })
 
   //Teste com API de Graça Joke API
   getJoke(){
     return this.http.get('https://api.chucknorris.io/jokes/random')
+  }
+
+  //Teste com API de Graça Joke API
+  getChuckNorrisJokesCategories(){
+    return this.http.get('https://api.chucknorris.io/jokes/categories')
+  }
+
+  getToken(){
+    return this.http.get('https://api4.ajin.io/v2/login', {
+      
+    })
   }
 
   //Pegando todos Customers
@@ -199,13 +225,16 @@ export class CustomerServicesService {
   //Pegando um Customer
   getCustomer(id: number){
     return this.http.get(`https://api4.ajin.io/v2/customers/${id}`, {
-      headers: this.headers
+      headers: {
+    'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiN2QxMzA2ZTAtZTUxZS00ODY2LWEzZmQtZjM4MjE3ZGQ1MmIyIiwic2Vzc2lvbl9pZCI6IjczM2ZmMGYzLTIzODktNDFiZC1iNzc5LWM2NDhmYTU3NTMxYSIsInNpZ25hbF9pZCI6ImVlY2Y0NDZmLWM1ZGEtNDAwMS1hYjE4LTIyMWZlODYzYjhmZiIsImhvc3QiOiJodHRwczovL2FwaTQuYWppbi5pby9pbmRleC5odG1sIiwiaXAiOiIxOTEuMTgzLjM4LjQyIiwibmJmIjoxNzIxMTgzNDI0LCJleHAiOjE3MjEyNjk4MjQsImlhdCI6MTcyMTE4MzQyNH0.IzH5UOVKxCZRILnrUKSTm1ca0y5CSuQmh2jpsBrGkqU`,
+    'accept': '*/*' 
+      }
     })
 
   }
 
   //Salvando Novo Customer
-  postCustomer(id: number){
+  postCustomer(){
     this.http.post(`https://api4.ajin.io/v2/customers`, {
       headers: this.headers
     })
