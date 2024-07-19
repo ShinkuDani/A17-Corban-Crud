@@ -248,17 +248,12 @@ export class CustomerServicesService {
 
   //Pegando todos Customers
   getCustomers(){
-    return this.http.get('https://api4.ajin.io/v2/customers', {
-      headers: this.headers0
-    })
-      
+    return this.http.get('https://api4.ajin.io/v2/customers') 
   }
 
   //Pegando um Customer
   getCustomer(id: number){
-    return this.http.get(`https://api4.ajin.io/v2/customers/${id}`, {
-      headers: this.headers0
-    })
+    return this.http.get(`https://api4.ajin.io/v2/customers/${id}`)
 
   }
 
