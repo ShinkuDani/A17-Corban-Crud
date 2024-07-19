@@ -10,6 +10,9 @@ import {MatCardModule} from '@angular/material/card';
 import { CreateClientComponent } from "../create-client/create-client.component";
 import { CustomerServicesService } from '../../services/customer-services.service';
 import { customerInterface } from '../../interfaces/customerInterface';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 //Table parameters and variables
 export interface PeriodicElement {
@@ -57,7 +60,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatButtonModule,
     MatSidenavModule,
     HeaderComponent,
-    CreateClientComponent],
+    CreateClientComponent,
+    MatDividerModule,
+    MatFormFieldModule],
   templateUrl: './tela-lista-clientes.component.html',
   styleUrl: './tela-lista-clientes.component.css'
 })
