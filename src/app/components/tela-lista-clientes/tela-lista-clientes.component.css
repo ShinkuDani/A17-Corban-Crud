@@ -25,6 +25,9 @@
   }
 
 
+  .main-container-sideBar-content mat-drawer{
+    width: 200px;
+  }
 
   .botao-isolado {
     border: 1px solid black;

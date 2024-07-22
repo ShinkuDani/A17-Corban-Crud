@@ -2,8 +2,59 @@
 
 <div class="main-container">
   <div class="main-container-sideBar">
-  <mat-drawer-container class="main-contianer-content" [hasBackdrop]="false">
-    <mat-drawer #drawer mode="push">I'm a drawer</mat-drawer>
+  <mat-drawer-container class="main-container-sideBar-content" [hasBackdrop]="false">
+    <mat-drawer #drawer mode="push">
+      <div>
+        <button mat-raised-button> Cadastro Clientes </button>
+      </div>
+
+      <mat-list>
+        <mat-list-item>
+          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>filter_list</mat-icon>
+            <span>Wifi</span>
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>clear_all</mat-icon>  
+          <span>Limpar Filtros</span>
+        </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>flag</mat-icon>  
+          <span>Status</span>          
+        </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>stacks</mat-icon>  
+          <span>Atributos</span>
+        </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>manage_search</mat-icon>  
+          <span>Meus Filtros</span>
+        </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>cake</mat-icon>  
+          <span>Aniversário do Mês</span>
+        </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>arrow_forward</mat-icon>  
+          <span>Exportar</span>
+        </button>
+        </mat-list-item>
+       </mat-list>
+
+      
+    </mat-drawer>
     <mat-drawer-content>
       <ul>
         <li>
@@ -21,15 +72,13 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
               <div class="main-container-content-midBar">
                 
                 <div class="sort">
-                  <button mat-icon-button class=" sort-icon" aria-label="Example icon-button with heart icon">
+                  <button  (click)="drawer.toggle()" mat-icon-button class="sort-icon" aria-label="Example icon-button with heart icon">
                     <mat-icon>sort</mat-icon>
                   </button>
-                </div>
-                
-
-                <div class="clientes">
-                  <span> Clientes</span>
-                    <p>4 clientes</p>
+                  <div class="clientes">
+                    <span> Clientes</span>
+                      <p>4 clientes</p>
+                  </div>
                 </div>
                 
                 <div class="search">

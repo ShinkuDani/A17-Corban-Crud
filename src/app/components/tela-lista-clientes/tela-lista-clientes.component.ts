@@ -12,7 +12,8 @@ import { CustomerServicesService } from '../../services/customer-services.servic
 import { customerInterface } from '../../interfaces/customerInterface';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { MockCustomer } from '../../interfaces/MockCustomer';
+import { MatListModule } from '@angular/material/list';
 
 //Table parameters and variables
 export interface PeriodicElement {
@@ -44,6 +45,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F', completed: false},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', completed: false},
 ];
+
+const ELEMENT_DATA2: MockCustomer[] = [
+  
+];
 // end Table variables
 
 
@@ -62,7 +67,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
     HeaderComponent,
     CreateClientComponent,
     MatDividerModule,
-    MatFormFieldModule],
+    MatFormFieldModule,
+    MatListModule],
   templateUrl: './tela-lista-clientes.component.html',
   styleUrl: './tela-lista-clientes.component.css'
 })
