@@ -12,8 +12,9 @@ import { CustomerServicesService } from '../../services/customer-services.servic
 import { customerInterface } from '../../interfaces/customerInterface';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MockCustomer } from '../../interfaces/MockCustomer';
+import { MockCustomer, MockCustomerLite } from '../../Interfaces/MockCustomer';
 import { MatListModule } from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 //Table parameters and variables
 export interface PeriodicElement {
@@ -33,6 +34,7 @@ export interface Joke {
   value: ''
 }
 
+
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', completed: false},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He', completed: false},
@@ -46,8 +48,38 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', completed: false},
 ];
 
-const ELEMENT_DATA2: MockCustomer[] = [
-  
+const ELEMENT_DATA2: MockCustomerLite[] = [
+  {
+    cpf: 12345698, nome: 'Rebeca Bauntz', nascimento: 2207202002, telefone: 119636310, conta: 'Conta Corrente', agente: 'Daniel', loja: 'Rebecautsts', criacao: 'Daniel Sales', dataCriacao: '19-06-2024'
+  },
+  {
+    cpf: 12345698, nome: 'Raquel Oliveira', nascimento: 1507202000, telefone: 119638425, conta: 'Conta Corrente', agente: 'Daniel', loja: 'Raquelis', criacao: 'Daniel Sales', dataCriacao: '20-06-2024'
+  },
+  {
+    cpf: 12345698, nome: 'Helen Silva', nascimento: 3002202002, telefone: 119648210, conta: 'Conta Corrente', agente: 'Daniel', loja: 'The Helenautas', criacao: 'Daniel Sales', dataCriacao: '14-06-2024'
+  },
+  {
+    cpf: 12345698,
+    nome: 'Ana Oliveira',
+    nascimento: 707202002,
+    telefone: 1196345219,
+    conta: 'Conta Corrente',
+    agente: 'Daniel',
+    loja: 'Ana a Estilista',
+    criacao: 'Daniel Sales',
+    dataCriacao: '19-02-2024'
+  },
+  {
+    cpf: 12345698,
+    nome: 'Gabriela Souza',
+    nascimento: 1014207548,
+    telefone: 119638965,
+    conta: 'Conta Poupança',
+    agente: 'Daniel',
+    loja: 'Gabrielasras',
+    criacao: 'Daniel Sales',
+    dataCriacao: '05-06-2024'
+  }
 ];
 // end Table variables
 
@@ -68,13 +100,70 @@ const ELEMENT_DATA2: MockCustomer[] = [
     CreateClientComponent,
     MatDividerModule,
     MatFormFieldModule,
-    MatListModule],
+    MatListModule,
+    MatMenuModule],
   templateUrl: './tela-lista-clientes.component.html',
   styleUrl: './tela-lista-clientes.component.css'
 })
 export class TelaListaClientesComponent {
 
   customerServices = inject(CustomerServicesService)
+
+  mockCustomer: MockCustomerLite[] = [{
+    cpf: 12345698,
+    nome: 'Rebeca Bauntz',
+    nascimento: 2207202002,
+    telefone: 119636310,
+    conta: 'Conta Corrente',
+    agente: 'Daniel',
+    loja: 'Rebecautsts',
+    criacao: 'Daniel Sales',
+    dataCriacao: '19-06-2024'
+  },
+  {
+    cpf: 12345698,
+    nome: 'Raquel Oliveira',
+    nascimento: 1507202000,
+    telefone: 119638425,
+    conta: 'Conta Corrente',
+    agente: 'Daniel',
+    loja: 'Raquelis',
+    criacao: 'Daniel Sales',
+    dataCriacao: '20-06-2024'
+  },
+  {
+    cpf: 12345698,
+    nome: 'Helen Silva',
+    nascimento: 3002202002,
+    telefone: 119648210,
+    conta: 'Conta Corrente',
+    agente: 'Daniel',
+    loja: 'The Helenautas',
+    criacao: 'Daniel Sales',
+    dataCriacao: '14-06-2024'
+  },
+  {
+    cpf: 12345698,
+    nome: 'Ana Oliveira',
+    nascimento: 707202002,
+    telefone: 1196345219,
+    conta: 'Conta Corrente',
+    agente: 'Daniel',
+    loja: 'Ana a Estilista',
+    criacao: 'Daniel Sales',
+    dataCriacao: '19-02-2024'
+  },
+  {
+    cpf: 12345698,
+    nome: 'Gabriela Souza',
+    nascimento: 1014207548,
+    telefone: 119638965,
+    conta: 'Conta Poupança',
+    agente: 'Daniel',
+    loja: 'Gabrielasras',
+    criacao: 'Daniel Sales',
+    dataCriacao: '05-06-2024'
+  }]
 
   customer: customerInterface = {
     accountCode: 0,
@@ -240,6 +329,13 @@ export class TelaListaClientesComponent {
     }
   }]
 
+  displayedColumns: string[] = ['CheckBox','position', 'name', 'weight', 'symbol', 'completed'];
+  dataSource = ELEMENT_DATA
+  dataSource2 = ELEMENT_DATA2
+
+
+  allComplete: boolean = false;
+
   //Pegando Customer One
   getCus(id: number){
     console.log(`Botão de Teste de Serviços Id: ${id}`)
@@ -286,10 +382,7 @@ export class TelaListaClientesComponent {
     })
   }
 
-  displayedColumns: string[] = ['CheckBox','position', 'name', 'weight', 'symbol', 'completed'];
-  dataSource = ELEMENT_DATA
-
-  allComplete: boolean = false;
+ 
 
   updateAllComplete() {
     this.allComplete = this.dataSource != null && this.dataSource.every(t => t.completed);

@@ -3,17 +3,17 @@ export interface MockCustomer {
    tipoPessoa: string
    cpf: number
    nome: string
-   nascimento: string
+   nascimento: number
    telefone: number
    email: string
    observacao: string
    cep: number
-   endereco: number
+   endereco: string
    endereco_numero: number
-   complemento: number
-   bairro: number
-   cidade: number
-   uf: number
+   complemento: string
+   bairro: string
+   cidade: string
+   uf: string
    sexo: string
    nomeMae: string
    nomePai: string
@@ -24,7 +24,7 @@ export interface MockCustomer {
    estadoCivil: string
    tipoDocumento: string
    numero: number
-   dataEmissao: number
+   dataEmissao: string
    orgaoEmissor: string
    ufEmissao: string
    contaBanco: number
@@ -35,15 +35,27 @@ export interface MockCustomer {
    tipoBeneficio: string
    numeroBeneficio: number
    codigoBeneficio: number
-   descricaoBeneficio: number
-   formaPagamentoBeneficio: number
+   descricaoBeneficio: string
+   formaPagamentoBeneficio: string
    valorBeneficio: number
    valorLiquidoBeneficio: number
-   dataEmissaoBeneficio: number
-   dataInicioBeneficio: number
+   dataEmissaoBeneficio: string
+   dataInicioBeneficio: string
    emprestimoBeneficio: boolean
    ufEmissaoBeneficio: string
   }
+
+  export interface MockCustomerLite {
+    cpf: number
+    nome: string
+    nascimento: number
+    telefone: number
+    conta: string
+    agente: string
+    loja: string
+    criacao: string
+    dataCriacao: string
+   }
   
   export interface Address {
     typeCode: number

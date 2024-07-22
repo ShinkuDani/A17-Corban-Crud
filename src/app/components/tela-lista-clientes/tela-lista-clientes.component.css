@@ -1,64 +1,43 @@
 .main-container{
   display: flex;
   flex-direction: row;
-  width: 218vh;
+  width: 100%;
   height: 95%;
 }
 
-.example-container {
-    width: 200px;
-    height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-  }
-  
-  .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .example-sidenav button, a {
-    width: 100%;
-    border-radius: 10px;
-  }
+.main-container-sideBar-content mat-drawer{
+  width: 200px;
+}
 
+.main-container-content-midBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ }
 
-  .main-container-sideBar-content mat-drawer{
-    width: 200px;
-  }
+.main-container-content-midBar .sort{
+ display: flex;
+}
 
-  .botao-isolado {
-    border: 1px solid black;
-    margin: 3px;
-  }
+.main-container-content-midBar .search{
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 5px;
+  align-items: center;
+  justify-content: center;
+}
 
-  .list-content-clients {
-    width: 200px;
-  }
-
-  .main-container table tr:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  .main-container-content-midBar {
-    width: 100%;
-    margin: 3px;
-    border: 1px solid transparent;
-  }
-
-  .main-container-content-midBar button {
+.main-container-content-buttonsServices button {
     margin-right: 10px;
+    margin-bottom: 15px;
+}
 
-  }
+.main-container table tr:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 
-  ul li {
+ul li {
     list-style: none;
-  }
+}
 
-
-
-  .main-container-content-midBar div {
-    display: flex;
-  }
+  
