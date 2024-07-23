@@ -10,43 +10,43 @@
 
       <mat-list>
         <mat-list-item>
-          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <button mat-icon-button class="filter-icon" aria-label="Example icon-button with share icon">
             <mat-icon>filter_list</mat-icon>
             <span>Wifi</span>
           </button>
         </mat-list-item>
         <mat-list-item>
-          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <button mat-icon-button class="clear_all-icon" aria-label="Example icon-button with share icon">
           <mat-icon>clear_all</mat-icon>  
           <span>Limpar Filtros</span>
         </button>
         </mat-list-item>
         <mat-list-item>
-          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <button mat-icon-button class="flag-icon" aria-label="Example icon-button with share icon">
           <mat-icon>flag</mat-icon>  
           <span>Status</span>          
         </button>
         </mat-list-item>
         <mat-list-item>
-          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <button mat-icon-button class="stacks-icon" aria-label="Example icon-button with share icon">
           <mat-icon>stacks</mat-icon>  
           <span>Atributos</span>
         </button>
         </mat-list-item>
         <mat-list-item>
-          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <button mat-icon-button class="manage_search-icon" aria-label="Example icon-button with share icon">
           <mat-icon>manage_search</mat-icon>  
           <span>Meus Filtros</span>
         </button>
         </mat-list-item>
         <mat-list-item>
-          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <button mat-icon-button class="cake-icon" aria-label="Example icon-button with share icon">
           <mat-icon>cake</mat-icon>  
           <span>Aniversário do Mês</span>
         </button>
         </mat-list-item>
         <mat-list-item>
-          <button mat-icon-button class="wifi-icon" aria-label="Example icon-button with share icon">
+          <button mat-icon-button class="arrow-icon" aria-label="Example icon-button with share icon">
           <mat-icon>arrow_forward</mat-icon>  
           <span>Exportar</span>
         </button>
@@ -56,159 +56,150 @@
       
     </mat-drawer>
     <mat-drawer-content>
+      <div class="main-container-content-midBar">
+                
+        <div class="sort">
+          <button  (click)="drawer.toggle()" mat-icon-button class="sort-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>sort</mat-icon>
+          </button>
+          <div class="clientes">
+            <span> Clientes</span>
+              <p>4 clientes</p>
+          </div>
+        </div>
+        
+        <div class="search">            
+            <button mat-icon-button class=" search-icon" aria-label="Example icon-button with heart icon">
+              <mat-icon>search</mat-icon>
+            </button>
+            <input matInput placeholder="Placeholder">
+            <button  (click)="drawer.toggle()" mat-icon-button class=" list-icon" aria-label="Example icon-button with heart icon">
+              <mat-icon>list</mat-icon>
+            </button>
+        </div>
+
+      </div>
+      <mat-divider></mat-divider>
+
       <ul>
         <li>
-          <p>
-            Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-          </p>
-          <mat-divider></mat-divider>
+            <div class="main-container-content-buttonsServices">
+              <h1> Botões de Teste de Serviço </h1>
+              <button mat-raised-button  (click)="getCuss()"> Utilizando Services Customers </button>
+              <button mat-raised-button  (click)="getCus(1)"> Utilizando Services Customer </button>
+              <button mat-raised-button  (click)="getJo()"> Utilizando Services Joke </button>
+              <button mat-raised-button  (click)="getJokeCategories()"> Utilizadno Joke Categorys </button>
+            </div>
         </li>
-
+            
+            
         <li>
-          <ul class="main-container-content">
-
-            <li>
-              <div class="main-container-content-midBar">
-                
-                <div class="sort">
-                  <button  (click)="drawer.toggle()" mat-icon-button class="sort-icon" aria-label="Example icon-button with heart icon">
-                    <mat-icon>sort</mat-icon>
-                  </button>
-                  <div class="clientes">
-                    <span> Clientes</span>
-                      <p>4 clientes</p>
-                  </div>
-                </div>
-                
-                <div class="search">
-                  <button mat-icon-button class=" search-icon" aria-label="Example icon-button with heart icon">
-                    <mat-icon>search</mat-icon>
-                  </button>
-                </div>
-
-                <div class="menu">
-                  <button  (click)="drawer.toggle()" mat-icon-button class=" list-icon" aria-label="Example icon-button with heart icon">
-                    <mat-icon>list</mat-icon>
-                  </button>
-                </div>
-
-              </div>
-            </li>
-
-
-            <li>
-              <div class="main-container-content">
-                <h1> Botões de Teste de Serviço </h1>
-                <button mat-raised-button  (click)="getCuss()"> Utilizando Services Customers </button>
-                <button mat-raised-button  (click)="getCus(1)"> Utilizando Services Customer </button>
-                <button mat-raised-button  (click)="getJo()"> Utilizando Services Joke </button>
-                <button mat-raised-button  (click)="getJokeCategories()"> Utilizadno Joke Categorys </button>
-              </div>
-            </li>
-        
-        
-            <li>
+          <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">            
+            <!-- Position Column -->
+            <ng-container matColumnDef="CheckBox">
+              <th mat-header-cell *matHeaderCellDef>
               
-              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-                <!--- Note that these columns can be defined in any order.
-                      The actual rendered columns are set as a property on the row definition" -->
-              
-                
-                <!-- Position Column -->
-                <ng-container matColumnDef="CheckBox">
-                  <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox class="example-margin"
+                [checked]="allComplete"
+                [indeterminate]="someComplete()"
+                (change)="setAll($event.checked)">
+                </mat-checkbox> 
                   
-                    <mat-checkbox class="example-margin"
-                    [checked]="allComplete"
-                    [indeterminate]="someComplete()"
-                    (change)="setAll($event.checked)">
-                    </mat-checkbox> 
-                      
-                    </th>
-                  <td mat-cell *matCellDef="let element"> 
-                    
-                    <mat-checkbox [checked]="element.completed"
-                                (change)="updateAllComplete()">
-                  </mat-checkbox>
-        
-                  </td>
-                </ng-container>
-        
-                <!-- Position Column -->
-                <ng-container matColumnDef="position">
-                  <th mat-header-cell *matHeaderCellDef> No. </th>
-                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                </ng-container>
+                </th>
+              <td mat-cell *matCellDef="let element"> 
+                
+                <mat-checkbox [checked]="element.completed"
+                            (change)="updateAllComplete()">
+              </mat-checkbox>
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>dialpad</mat-icon>
+                  <span>Redial</span>
+                </button>
+                <button mat-menu-item disabled>
+                  <mat-icon>voicemail</mat-icon>
+                  <span>Check voice mail</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button>
+              </mat-menu>
               
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Name </th>
-                  <td mat-cell *matCellDef="let element"> 
-                    <span> Conta </span>
-                    <div>
-                      {{element.name}}
-                    </div>
-        
-                    <p> </p>
-                    
-                    <span> Loja </span>
-                    <div>
-                      {{element.name}}
-                    </div>
-        
-                      <p> </p>
-        
-                    <span> Agente </span>
-                    <div>
-                      {{element.name}}
-                    </div>
-                  </td>
-                </ng-container>
-              
-                <!-- Weight Column -->
-                <ng-container matColumnDef="weight">
-                  <th mat-header-cell *matHeaderCellDef> Weight </th>
-                  <td mat-cell *matCellDef="let element">
-                    
-                    <span> Criação </span>
-                    <div>
-                      {{element.weight}}
-                    </div>
-                    <p>
-                      15/07/2024: 00:13
-                    </p>
-        
-                    
-                    
-                  </td>
-                </ng-container>
-              
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="symbol">
-                  <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                </ng-container>
-        
-                <!-- Symbol Completed -->
-                <ng-container matColumnDef="completed">
-                    <th mat-header-cell *matHeaderCellDef> Completed </th>
-                    <td mat-cell *matCellDef="let element"> {{element.completed}} </td>
-                  </ng-container>
-              
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
-        
-            </li>
-        
-        
-          </ul>
+              </td>
+            </ng-container>
+    
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> 
+                <span> Conta </span>
+                <div>
+                  {{element.name}}
+                </div>
+    
+                <p> </p>
+                
+                <span> Loja </span>
+                <div>
+                  {{element.name}}
+                </div>
+    
+                  <p> </p>
+    
+                <span> Agente </span>
+                <div>
+                  {{element.name}}
+                </div>
+              </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+              <th mat-header-cell *matHeaderCellDef> Weight </th>
+              <td mat-cell *matCellDef="let element">
+                
+                <span> Criação </span>
+                <div>
+                  {{element.weight}}
+                </div>
+                <p>
+                  15/07/2024: 00:13
+                </p>
+    
+                
+                
+              </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="symbol">
+              <th mat-header-cell *matHeaderCellDef> Symbol </th>
+              <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+    
+            <!-- Symbol Completed -->
+            <ng-container matColumnDef="completed">
+                <th mat-header-cell *matHeaderCellDef> Completed </th>
+                <td mat-cell *matCellDef="let element"> {{element.completed}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
         </li>
 
       </ul>
       
     </mat-drawer-content>
   </mat-drawer-container>
-</div>
 </div>

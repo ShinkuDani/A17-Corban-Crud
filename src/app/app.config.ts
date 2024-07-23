@@ -5,8 +5,8 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CustomerServicesService } from './services/customer-services.service';
-import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
-import { loggerInterceptor } from './Interceptors/logger.interceptor';
+import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { loggerInterceptor } from './interceptors/logger.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,6 +14,7 @@ export const appConfig: ApplicationConfig = {
      provideClientHydration(),
       provideAnimationsAsync(),
       provideHttpClient(
+        withFetch(),
         withInterceptors([loggerInterceptor])
       ),
        CustomerServicesService,
