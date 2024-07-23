@@ -23,10 +23,10 @@ export interface MockCustomer {
    nacionalidade: string
    estadoCivil: string
    tipoDocumento: string
-   numero: number
-   dataEmissao: string
+   numeroDocumento: number
+   dataEmissaoDocumento: string
    orgaoEmissor: string
-   ufEmissao: string
+   ufEmissaoDocumento: string
    contaBanco: number
    nomeBanco: string
    agenciaBanco: number

@@ -12,7 +12,7 @@ import { CustomerServicesService } from '../../services/customer-services.servic
 import { customerInterface } from '../../interfaces/customerInterface';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MockCustomer, MockCustomerLite } from '../../interfaces/MockCustomer';
+import { MockCustomer, MockCustomerLite } from '../../Interfaces/MockCustomer';
 import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 

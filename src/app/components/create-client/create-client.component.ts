@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router'
+import { MockCustomer } from '../../Interfaces/MockCustomer';
 
 
 @Component({
@@ -19,7 +20,7 @@ import { RouterModule } from '@angular/router'
     MatCheckboxModule,
     MatGridListModule,
     MatMenuModule,
-    ReactiveFormsModule,
+    FormsModule,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
@@ -32,26 +33,65 @@ import { RouterModule } from '@angular/router'
 })
 export class CreateClientComponent {
 
-   cliente = {
-    nome:'',
-    idade: 0
-  }
+  //clientForm!: FormGroup;
 
-  form!: FormGroup;
 
-  ngOnInit(): void{
-    this.form = new FormGroup({
-      nome: new FormControl<string>(this.cliente.nome),
-      idade: new FormControl<number>(this.cliente.idade),
-    });
-  }
+   cliente:MockCustomer = {
+     tipoPessoa: '',
+     cpf: 0,
+     nome: '',
+     nascimento: 0,
+     telefone: 0,
+     email: '',
+     observacao: '',
+     cep: 0,
+     endereco: '',
+     endereco_numero: 0,
+     complemento: '',
+     bairro: '',
+     cidade: '',
+     uf: '',
+     sexo: '',
+     nomeMae: '',
+     nomePai: '',
+     grauDeInstrucao: '',
+     naturalidade: '',
+     estadoNaturalidade: '',
+     nacionalidade: '',
+     estadoCivil: '',
+     tipoDocumento: '',
+     numeroDocumento: 0,
+     dataEmissaoDocumento: '',
+     orgaoEmissor: '',
+     ufEmissaoDocumento: '',
+     contaBanco: 0,
+     nomeBanco: '',
+     agenciaBanco: 0,
+     numeroConta: 0,
+     tipoConta: '',
+     tipoBeneficio: '',
+     numeroBeneficio: 0,
+     codigoBeneficio: 0,
+     descricaoBeneficio: '',
+     formaPagamentoBeneficio: '',
+     valorBeneficio: 0,
+     valorLiquidoBeneficio: 0,
+     dataEmissaoBeneficio: '',
+     dataInicioBeneficio: '',
+     emprestimoBeneficio: false,
+     ufEmissaoBeneficio: ''
+   }
+  
+
   onSubmit(){
-     this.cliente.nome = this.form.value.nome;
-     this.cliente.idade = this.form.value.idade;
+     console.log('onSubmit Funcionado')
+  }
 
-    console.log("Cliente NOme: " + this.cliente.nome)
-    console.log("Cliente Idade: " + this.cliente.idade)
+  submitForm(userForm:any){
 
+    if(userForm.valid){
+      console.log('Form Data:' , this.cliente)
+    }
   }
 
 }

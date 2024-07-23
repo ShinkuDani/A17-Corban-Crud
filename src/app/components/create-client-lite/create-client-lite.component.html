@@ -1,0 +1,67 @@
+<div class="header">
+    <mat-toolbar>
+      <span> Novo Cliente </span>
+      <span class="example-spacer"></span>
+      <button mat-raised-button color="primary" type="submit"> Confirmar </button>
+      <button mat-raised-button [routerLink]="['']" routerLinkActive="active" > Cancelar </button>
+  
+    </mat-toolbar>
+  </div>
+
+<div class="main-container-forms">
+
+    <form #clientForm="ngForm" (ngSubmit)="submitForm(clientForm)">
+        <div class="main-container-forms-cliente">
+        <h1> Cliente </h1>
+
+        <mat-form-field class="example-full-width">
+          <mat-label> CPF </mat-label>
+          <input matInput placeholder="CPF" [(ngModel)] = 'cliente.cpf' name="cpf" >
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label> Nome </mat-label>
+          <input matInput placeholder="Nome" [(ngModel)] = 'cliente.nome' name="nome">
+          <mat-hint align="end"> Obrigatório </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label> Nacimento </mat-label>
+          <input matInput placeholder="Nacimento" [(ngModel)] = 'cliente.nascimento' name="nacimento">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label> Telefone </mat-label>
+          <input matInput placeholder="Telefone" [(ngModel)] = 'cliente.telefone' name="telefone">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label> Conta </mat-label>
+            <input matInput placeholder="Conta" [(ngModel)] = 'cliente.conta' name="conta">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label> Agente </mat-label>
+          <input matInput placeholder="agente" [(ngModel)] = 'cliente.agente' name="agente">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label> Loja </mat-label>
+            <input matInput placeholder="Loja" [(ngModel)] = 'cliente.loja' name="loja">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label> Data_Criacao </mat-label>
+          <input matInput placeholder="Data_criacao" [(ngModel)] = 'cliente.criacao' name="criacao">
+        </mat-form-field>
+
+        </div>
+        <div>
+            <button mat-raised-button color="primary" type="submit" (click)="submitForm(clientForm)"> Confirmar </button>
+            
+        </div>
+    </form>
+
+
+
+</div>
