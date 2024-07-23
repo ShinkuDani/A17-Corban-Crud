@@ -6,7 +6,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CustomerServicesService } from './services/customer-services.service';
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
-import { loggerInterceptor } from './interceptors/logger.interceptor';
+import { loggerInterceptor } from './Interceptors/logger.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
